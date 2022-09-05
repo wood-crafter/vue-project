@@ -6,7 +6,11 @@ const createWindow = () => {
     height: 600
   })
 
-  win.loadURL('http://localhost:3000')
+  if (require('electron-is-dev')) {
+    win.loadURL('http://localhost:3000')
+  } else {
+    // win.loadFile(indexPath)
+  }
 }
 
 app.whenReady().then(() => {
